@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One day in Sydney</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville:wght@700&family=Mooli&family=Open+Sans&family=Young+Serif&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div>
+    <h1>One Day in Sydney</h1>
+
+    <form class="search" action="/search" method="POST">
+        <label for="pastDate">Choose a date:  </label>
+        <input type="date" id="pastDate" name="pastDate" min="1940-01-01"/>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div class="image-container">
+        <div class="card">
+            <div class="card-front">
+                <img src="images/front.jpg" alt="Front Image">
+                <p><strong>(Flip the postcard by clicking on it.)</strong></p>
+            </div>
+            <div class="card-back">
+                <img src="images/back.png" alt="Back Image">
+ 
+                <% if (locals.date) { %>
+                <div class="letter">
+                    <p id="date"><%= date %></p>
+                    <div id="weather">
+                        <span id="temp"><%= temp %></span>  
+                        <span id="sunrise-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sunrise" viewBox="0 0 16 16">
+                            <path d="M7.646 1.146a.5.5 0 0 1 .708 0l1.5 1.5a.5.5 0 0 1-.708.708L8.5 2.707V4.5a.5.5 0 0 1-1 0V2.707l-.646.647a.5.5 0 1 1-.708-.708l1.5-1.5zM2.343 4.343a.5.5 0 0 1 .707 0l1.414 1.414a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .707l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM8 7a3 3 0 0 1 2.599 4.5H5.4A3 3 0 0 1 8 7zm3.71 4.5a4 4 0 1 0-7.418 0H.499a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                            </svg>
+                            <span id="sunrise"><%= sunrise %></span>
+                        </span> 
+                        
+                        <span id="sunset-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sunset" viewBox="0 0 16 16">
+                            <path d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708l1.5 1.5zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM8 7a3 3 0 0 1 2.599 4.5H5.4A3 3 0 0 1 8 7zm3.71 4.5a4 4 0 1 0-7.418 0H.499a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                            </svg> 
+                            <span id="sunset"><%= sunset %></span>
+                        </span> 
+                    
+                    </div>
+                    <p><%= content.greeting%> </p>
+                    <p><%= content.letter%></p>
+                </div>
+
+                <% } else {%>
+                    <p>Choose the date of postcard.</p>
+                <% } %>
+
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer">
+            <p>@ Weather data from open-meteo weather API</p>
+            <p>@ Postcard img by Freepik</p>
+        </div> 
+    </footer>
+    </div>
+    <script src="front-end.js"></script>
+    
+</body>
+
+
+</html>

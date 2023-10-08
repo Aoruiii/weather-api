@@ -1,0 +1,83 @@
+
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1{
+    padding-bottom: 10%;
+}
+
+
+form {
+    padding-bottom: 10%;
+}
+
+.image-container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 500px;
+    height: 333px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    font-size: small;
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    font-size: small;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    position: relative;
+    font-family: 'Caveat', cursive;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.letter {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    padding-right: 50%; 
+}
+
+#weather {
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#sunrise-icon,
+#sunset-icon {
+    display:flex;
+    align-items: center;
+}
+
+#sunrise,
+#sunset{
+    margin-left: 8px;
+}
+
+.footer {
+    padding-top: 100px;
+    font-size: small;
+}
